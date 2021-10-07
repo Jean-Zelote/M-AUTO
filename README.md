@@ -1,4 +1,4 @@
-# JS AMAZONA
+# M-AUTO
 # Amazona ECommerce Website
 ![amazona](/frontend/images/jsamazona.jpg)
 
@@ -66,7 +66,7 @@ $ npm start
 
 ### 6. Create Admin User
 
-- Run this on chrome: http://localhost:5000/api/users/createadmin
+- Run this on chrome: http://localhost:8080/api/users/createadmin
 - Note admin email and password
 
 ### 7. Admin Login
