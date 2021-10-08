@@ -4,33 +4,33 @@ import {
   hideLoading,
   showMessage,
   rerender,
-} from '../utils';
-import { createReview, getProduct } from '../api';
-import Rating from '../components/Rating';
-import { getUserInfo } from '../localStorage';
+} from "../utils";
+import { createReview, getProduct } from "../api";
+import Rating from "../components/Rating";
+import { getUserInfo } from "../localStorage";
 
 const ProductScreen = {
   after_render: () => {
     const request = parseRequestUrl();
-    document.getElementById('add-button').addEventListener('click', () => {
+    document.getElementById("add-button").addEventListener("click", () => {
       document.location.hash = `/cart/${request.id}`;
     });
 
-    if (document.getElementById('review-form')) {
+    if (document.getElementById("review-form")) {
       document
-        .getElementById('review-form')
-        .addEventListener('submit', async (e) => {
+        .getElementById("review-form")
+        .addEventListener("submit", async (e) => {
           e.preventDefault();
           showLoading();
           const data = await createReview(request.id, {
-            comment: document.getElementById('comment').value,
-            rating: document.getElementById('rating').value,
+            comment: document.getElementById("comment").value,
+            rating: document.getElementById("rating").value,
           });
           hideLoading();
           if (data.error) {
             showMessage(data.error);
           } else {
-            showMessage('Review Added Successfully', () => {
+            showMessage("Review Added Successfully", () => {
               rerender(ProductScreen);
             });
           }
@@ -49,7 +49,7 @@ const ProductScreen = {
     return `
     <div class="content">
       <div class="back-to-result">
-        <a href="/#/">Back to result </a>
+        <a href="/#/"><i class='bx bx-arrow-back' ></i>Revenir en arrière </a>
       </div>
       <div class="details">
         <div class="details-image">
@@ -86,18 +86,22 @@ const ProductScreen = {
                 Status : 
                   ${
                     product.countInStock > 0
-                      ? `<span class="success">In Stock</span>`
-                      : `<span class="error">Unavailable</span>`
+                      ? `<span class="success">En Stock</span>`
+                      : `<span class="error">Non disponible</span>`
                   }
               </li>
               <li>
-                  <button id="add-button" class="fw primary">Add to Cart </div>
+                  <button id="add-button" class="fw primary">Ajouter au Panier </div>
             </ul>
         </div>
       </div>
       <div class="content">
-      <h2>Reviews</h2>
-      ${product.reviews.length === 0 ? `<div>There is no review.</div>` : ''}  
+      <h2>Commentaires</h2>
+      ${
+        product.reviews.length === 0
+          ? `<div>Il y a pas de commentaire.</div>`
+          : ""
+      }  
       <ul class="review">
       ${product.reviews
         .map(
@@ -117,7 +121,7 @@ const ProductScreen = {
             </div>
           </li>`
         )
-        .join('\n')}
+        .join("\n")}
 
         <li>
        
@@ -127,30 +131,30 @@ const ProductScreen = {
             <div class="form-container">
             <form id="review-form">
               <ul class="form-items">
-              <li> <h3>Write a customer reviews</h3></li>
+              <li> <h3>Rédiger un commentaire personnalisé</h3></li>
                 <li>
-                  <label for="rating">Rating</label>
+                  <label for="rating">Classement</label>
                   <select required name="rating" id="rating">
-                    <option value="">Select</option>
-                    <option value="1">1 = Poor</option>
-                    <option value="2">2 = Fair</option>
-                    <option value="3">3 = Good</option>
-                    <option value="4">4 = Very Good</option>
+                    <option value="">Selectionner</option>
+                    <option value="1">1 = Mauvais</option>
+                    <option value="2">2 = Au moins</option>
+                    <option value="3">3 = Bien</option>
+                    <option value="4">4 = Très bien</option>
                     <option value="5">5 = Excellent</option>
                   </select>
                 </li>
                 <li>
-                  <label for="comment">Comment</label>
+                  <label for="comment">Commenter</label>
                   <textarea required  name="comment" id="comment" ></textarea>
                 </li>
                 <li>
-                  <button type="submit" class="primary">Submit</button>
+                  <button type="submit" class="primary">Soumettre</button>
                 </li>
               </ul>
             </form>
             </div>`
             : ` <div>
-              Please <a href="/#/signin">Signin</a> to write a review.
+              Please <a href="/#/signin">Connexion</a> to write a review.
             </div>`
         }
       </li>

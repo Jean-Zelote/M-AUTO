@@ -3,48 +3,48 @@ import {
   showLoading,
   showMessage,
   hideLoading,
-} from '../utils';
-import { getProduct, updateProduct, uploadProductImage } from '../api';
+} from "../utils";
+import { getProduct, updateProduct, uploadProductImage } from "../api";
 
 const ProductEditScreen = {
   after_render: () => {
     const request = parseRequestUrl();
     document
-      .getElementById('edit-product-form')
-      .addEventListener('submit', async (e) => {
+      .getElementById("edit-product-form")
+      .addEventListener("submit", async (e) => {
         e.preventDefault();
         showLoading();
         const data = await updateProduct({
           _id: request.id,
-          name: document.getElementById('name').value,
-          price: document.getElementById('price').value,
-          image: document.getElementById('image').value,
-          brand: document.getElementById('brand').value,
-          category: document.getElementById('category').value,
-          countInStock: document.getElementById('countInStock').value,
-          description: document.getElementById('description').value,
+          name: document.getElementById("name").value,
+          price: document.getElementById("price").value,
+          image: document.getElementById("image").value,
+          brand: document.getElementById("brand").value,
+          category: document.getElementById("category").value,
+          countInStock: document.getElementById("countInStock").value,
+          description: document.getElementById("description").value,
         });
         hideLoading();
         if (data.error) {
           showMessage(data.error);
         } else {
-          document.location.hash = '/productlist';
+          document.location.hash = "/productlist";
         }
       });
     document
-      .getElementById('image-file')
-      .addEventListener('change', async (e) => {
+      .getElementById("image-file")
+      .addEventListener("change", async (e) => {
         const file = e.target.files[0];
         const formData = new FormData();
-        formData.append('image', file);
+        formData.append("image", file);
         showLoading();
         const data = await uploadProductImage(formData);
         hideLoading();
         if (data.error) {
           showMessage(data.error);
         } else {
-          showMessage('Image uploaded successfully.');
-          document.getElementById('image').value = data.image;
+          showMessage("Image uploaded successfully.");
+          document.getElementById("image").value = data.image;
         }
       });
   },
@@ -54,7 +54,7 @@ const ProductEditScreen = {
     return `
     <div class="content">
       <div>
-        <a href="/#/productlist">Back to products</a>
+        <a href="/#/productlist"><i class='bx bx-arrow-back' ></i>Revenir en arrière</a>
       </div>
       <div class="form-container">
         <form id="edit-product-form">
@@ -63,13 +63,13 @@ const ProductEditScreen = {
               <h1>Edit Product ${product._id.substring(0, 8)}</h1>
             </li>
             <li>
-              <label for="name">Name</label>
+              <label for="name">Nom</label>
               <input type="text" name="name" value="${
                 product.name
               }" id="name" />
             </li>
             <li>
-              <label for="price">Price</label>
+              <label for="price">Prix</label>
               <input type="number" name="price" value="${
                 product.price
               }" id="price" />
@@ -82,19 +82,19 @@ const ProductEditScreen = {
               <input type="file" name="image-file" id="image-file" />
             </li>
             <li>
-              <label for="brand">Brand</label>
+              <label for="brand">Marque</label>
               <input type="text" name="brand" value="${
                 product.brand
               }" id="brand" />
             </li>
             <li>
-              <label for="countInStock">Count In Stock</label>
+              <label for="countInStock">Nombre en stock</label>
               <input type="text" name="countInStock" value="${
                 product.countInStock
               }" id="countInStock" />
             </li>
             <li>
-              <label for="category">Category</label>
+              <label for="category">Categorie</label>
               <input type="text" name="category" value="${
                 product.category
               }" id="category" />
@@ -106,7 +106,7 @@ const ProductEditScreen = {
               }" id="description" />
             </li>
             <li>
-              <button type="submit" class="primary">Update</button>
+              <button type="submit" class="primary">Mettre à jour</button>
             </li>
           </ul>
         </form>

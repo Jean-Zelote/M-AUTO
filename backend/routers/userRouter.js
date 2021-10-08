@@ -1,18 +1,18 @@
-import express from 'express';
-import expressAsyncHandler from 'express-async-handler';
-import User from '../models/userModel';
-import { generateToken, isAuth } from '../utils';
+import express from "express";
+import expressAsyncHandler from "express-async-handler";
+import User from "../models/userModel";
+import { generateToken, isAuth } from "../utils";
 
 const userRouter = express.Router();
 
 userRouter.get(
-  '/createadmin',
+  "/createadmin",
   expressAsyncHandler(async (req, res) => {
     try {
       const user = new User({
-        name: 'admin',
-        email: 'admin@example.com',
-        password: 'jsamazona',
+        name: "jeanzelote",
+        email: "mulondajean@zelote.com",
+        password: "zelote2021",
         isAdmin: true,
       });
       const createdUser = await user.save();
@@ -23,7 +23,7 @@ userRouter.get(
   })
 );
 userRouter.post(
-  '/signin',
+  "/signin",
   expressAsyncHandler(async (req, res) => {
     const signinUser = await User.findOne({
       email: req.body.email,
@@ -31,7 +31,7 @@ userRouter.post(
     });
     if (!signinUser) {
       res.status(401).send({
-        message: 'Invalid Email or Password',
+        message: "Invalid Email or Password",
       });
     } else {
       res.send({
@@ -45,7 +45,7 @@ userRouter.post(
   })
 );
 userRouter.post(
-  '/register',
+  "/register",
   expressAsyncHandler(async (req, res) => {
     const user = new User({
       name: req.body.name,
@@ -55,7 +55,7 @@ userRouter.post(
     const createdUser = await user.save();
     if (!createdUser) {
       res.status(401).send({
-        message: 'Invalid User Data',
+        message: "Invalid User Data",
       });
     } else {
       res.send({
@@ -69,14 +69,14 @@ userRouter.post(
   })
 );
 userRouter.put(
-  '/:id',
+  "/:id",
   isAuth,
   expressAsyncHandler(async (req, res) => {
     const user = await User.findById(req.params.id);
 
     if (!user) {
       res.status(404).send({
-        message: 'User Not Found',
+        message: "User Not Found",
       });
     } else {
       user.name = req.body.name || user.name;

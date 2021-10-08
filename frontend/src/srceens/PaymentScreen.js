@@ -1,23 +1,23 @@
-import { getUserInfo, setPayment } from '../localStorage';
-import CheckoutSteps from '../components/CheckoutSteps';
+import { getUserInfo, setPayment } from "../localStorage";
+import CheckoutSteps from "../components/CheckoutSteps";
 
 const PaymentScreen = {
   after_render: () => {
     document
-      .getElementById('payment-form')
-      .addEventListener('submit', async (e) => {
+      .getElementById("payment-form")
+      .addEventListener("submit", async (e) => {
         e.preventDefault();
         const paymentMethod = document.querySelector(
           'input[name="payment-method"]:checked'
         ).value;
         setPayment({ paymentMethod });
-        document.location.hash = '/placeorder';
+        document.location.hash = "/placeorder";
       });
   },
   render: () => {
     const { name } = getUserInfo();
     if (!name) {
-      document.location.hash = '/';
+      document.location.hash = "/";
     }
     return `
     ${CheckoutSteps.render({ step1: true, step2: true, step3: true })}
@@ -25,7 +25,7 @@ const PaymentScreen = {
       <form id="payment-form">
         <ul class="form-items">
           <li>
-            <h1>Payment</h1>
+            <h1>Paiement</h1>
           </li>
           <li>
             <div>
@@ -44,11 +44,11 @@ const PaymentScreen = {
             id="stripe"
             value="Stripe"
              />
-            <label for="stripe" >Stripe</label>
+            <label for="stripe" >Rayures</label>
            </div> 
         </li>
           <li>
-            <button type="submit" class="primary">Continue</button>
+            <button type="submit" class="primary">Continuer</button>
           </li>        
         </ul>
       </form>

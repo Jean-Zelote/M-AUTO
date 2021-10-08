@@ -66,18 +66,18 @@ $ npm start
 
 ### 6. Create Admin User
 
-- Run this on chrome: http://localhost:8080/api/users/createadmin
+- Run this on chrome: http://localhost:5000/api/users/createadmin
 - Note admin email and password
 
 ### 7. Admin Login
 
-- Run http://localhost:8080/#/signin
+- Run http://localhost:5000/#/signin
 - Enter admin email and password and click signin
 - Click Dashboard Link on Header Menu
 - Click Products on left sidebar
 - Click Create Product Button
 - Enter Product Information
-- Go to home page (http://localhost:8080) and test Ecommerce Website
+- Go to home page (http://localhost:5000) and test Ecommerce Website
 
 ## Support
 

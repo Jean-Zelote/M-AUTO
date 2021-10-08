@@ -1,5 +1,5 @@
-import { getUserInfo } from '../localStorage';
-import { parseRequestUrl } from '../utils';
+import { getUserInfo } from "../localStorage";
+import { parseRequestUrl } from "../utils";
 
 const Header = {
   render: () => {
@@ -14,7 +14,7 @@ const Header = {
   </div>
   <div class="search">
   <form class="search-form"  id="search-form">
-    <input type="text" name="q" id="q" value="${value || ''}" /> 
+    <input type="text" name="q" id="q" value="${value || ""}" /> 
     <button type="submit"><i class="fa fa-search"></i></button>
   </form>        
   </div>
@@ -22,25 +22,25 @@ const Header = {
   ${
     name
       ? `<a href="/#/profile">${name}</a>`
-      : `<a href="/#/signin">Sign-In</a>`
+      : `<a href="/#/signin"><i class='bx bx-user'></i>Connexion</a>`
   }    
-    <a href="/#/cart">Cart</a>
-    ${isAdmin ? `<a href="/#/dashboard">Dashboard</a>` : ''}
+    <a href="/#/cart">Panier<i class='bx bx-cart-alt'></i></a>
+    ${isAdmin ? `<a href="/#/dashboard">Dashboard</a>` : ""}
   </div>`;
   },
   after_render: () => {
     document
-      .getElementById('search-form')
-      .addEventListener('submit', async (e) => {
+      .getElementById("search-form")
+      .addEventListener("submit", async (e) => {
         e.preventDefault();
-        const searchKeyword = document.getElementById('q').value;
+        const searchKeyword = document.getElementById("q").value;
         document.location.hash = `/?q=${searchKeyword}`;
       });
 
     document
-      .getElementById('aside-open-button')
-      .addEventListener('click', async () => {
-        document.getElementById('aside-container').classList.add('open');
+      .getElementById("aside-open-button")
+      .addEventListener("click", async () => {
+        document.getElementById("aside-container").classList.add("open");
       });
   },
 };

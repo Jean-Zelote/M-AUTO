@@ -1,18 +1,18 @@
-import { register } from '../api';
-import { getUserInfo, setUserInfo } from '../localStorage';
-import { showLoading, hideLoading, showMessage, redirectUser } from '../utils';
+import { register } from "../api";
+import { getUserInfo, setUserInfo } from "../localStorage";
+import { showLoading, hideLoading, showMessage, redirectUser } from "../utils";
 
 const RegisterScreen = {
   after_render: () => {
     document
-      .getElementById('register-form')
-      .addEventListener('submit', async (e) => {
+      .getElementById("register-form")
+      .addEventListener("submit", async (e) => {
         e.preventDefault();
         showLoading();
         const data = await register({
-          name: document.getElementById('name').value,
-          email: document.getElementById('email').value,
-          password: document.getElementById('password').value,
+          name: document.getElementById("name").value,
+          email: document.getElementById("email").value,
+          password: document.getElementById("password").value,
         });
         hideLoading();
         if (data.error) {
@@ -32,10 +32,10 @@ const RegisterScreen = {
       <form id="register-form">
         <ul class="form-items">
           <li>
-            <h1>Create Account</h1>
+            <h1>Créer Compte</h1>
           </li>
           <li>
-            <label for="name">Name</label>
+            <label for="name">Nom</label>
             <input type="name" name="name" id="name" />
           </li>
           <li>
@@ -43,20 +43,20 @@ const RegisterScreen = {
             <input type="email" name="email" id="email" />
           </li>
           <li>
-            <label for="password">Password</label>
+            <label for="password">Mot-de passe</label>
             <input type="password" name="password" id="password" />
           </li>
           <li>
-            <label for="repassword">Re-Enter Password</label>
+            <label for="repassword">Re-Confirmer le mot de passe</label>
             <input type="password" name="repassword" id="repassword" />
           </li>
           <li>
-            <button type="submit" class="primary">Register</button>
+            <button type="submit" class="primary">Enregistrer</button>
           </li>
           <li>
             <div>
-              Already have an account?
-              <a href="/#/signin">Sign-In </a>
+              Avez-vous déjà un compte?
+              <a href="/#/signin">Connexion </a>
             </div>
           </li>
         </ul>

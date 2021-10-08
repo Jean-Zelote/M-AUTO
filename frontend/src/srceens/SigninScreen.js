@@ -1,17 +1,17 @@
-import { signin } from '../api';
-import { getUserInfo, setUserInfo } from '../localStorage';
-import { showLoading, hideLoading, showMessage, redirectUser } from '../utils';
+import { signin } from "../api";
+import { getUserInfo, setUserInfo } from "../localStorage";
+import { showLoading, hideLoading, showMessage, redirectUser } from "../utils";
 
 const SigninScreen = {
   after_render: () => {
     document
-      .getElementById('signin-form')
-      .addEventListener('submit', async (e) => {
+      .getElementById("signin-form")
+      .addEventListener("submit", async (e) => {
         e.preventDefault();
         showLoading();
         const data = await signin({
-          email: document.getElementById('email').value,
-          password: document.getElementById('password').value,
+          email: document.getElementById("email").value,
+          password: document.getElementById("password").value,
         });
         hideLoading();
         if (data.error) {
@@ -31,23 +31,23 @@ const SigninScreen = {
       <form id="signin-form">
         <ul class="form-items">
           <li>
-            <h1>Sign-In</h1>
+            <h1>Se Connecter</h1>
           </li>
           <li>
             <label for="email">Email</label>
             <input type="email" name="email" id="email" />
           </li>
           <li>
-            <label for="password">Password</label>
+            <label for="password">Mot de passe</label>
             <input type="password" name="password" id="password" />
           </li>
           <li>
-            <button type="submit" class="primary">Signin</button>
+            <button type="submit" class="primary">Connexion</button>
           </li>
           <li>
             <div>
-              New User?
-              <a href="/#/register">Create your account </a>
+              Nouveau Utilisateur?
+              <a href="/#/register">Créer votre compte </a>
             </div>
           </li>
         </ul>

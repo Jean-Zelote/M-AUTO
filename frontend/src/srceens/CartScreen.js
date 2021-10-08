@@ -1,7 +1,7 @@
 /* eslint-disable no-use-before-define */
-import { parseRequestUrl, rerender } from '../utils';
-import { getProduct } from '../api';
-import { getCartItems, setCartItems } from '../localStorage';
+import { parseRequestUrl, rerender } from "../utils";
+import { getProduct } from "../api";
+import { getCartItems, setCartItems } from "../localStorage";
 
 const addToCart = (item, forceUpdate = false) => {
   let cartItems = getCartItems();
@@ -23,7 +23,7 @@ const addToCart = (item, forceUpdate = false) => {
 const removeFromCart = (id) => {
   setCartItems(getCartItems().filter((x) => x.product !== id));
   if (id === parseRequestUrl().id) {
-    document.location.hash = '/cart';
+    document.location.hash = "/cart";
   } else {
     rerender(CartScreen);
   }
@@ -31,21 +31,21 @@ const removeFromCart = (id) => {
 
 const CartScreen = {
   after_render: () => {
-    const qtySelects = document.getElementsByClassName('qty-select');
+    const qtySelects = document.getElementsByClassName("qty-select");
     Array.from(qtySelects).forEach((qtySelect) => {
-      qtySelect.addEventListener('change', (e) => {
+      qtySelect.addEventListener("change", (e) => {
         const item = getCartItems().find((x) => x.product === qtySelect.id);
         addToCart({ ...item, qty: Number(e.target.value) }, true);
       });
     });
-    const deleteButtons = document.getElementsByClassName('delete-button');
+    const deleteButtons = document.getElementsByClassName("delete-button");
     Array.from(deleteButtons).forEach((deleteButton) => {
-      deleteButton.addEventListener('click', () => {
+      deleteButton.addEventListener("click", () => {
         removeFromCart(deleteButton.id);
       });
     });
-    document.getElementById('checkout-button').addEventListener('click', () => {
-      document.location.hash = '/signin';
+    document.getElementById("checkout-button").addEventListener("click", () => {
+      document.location.hash = "/signin";
     });
   },
   render: async () => {
@@ -67,12 +67,12 @@ const CartScreen = {
       <div class="cart-list">
         <ul class="cart-list-container">
           <li>
-            <h3>Shopping Cart</h3>
-            <div>Price</div>
+            <h3>Panier d'achats</h3>
+            <div>Prix</div>
           </li>
           ${
             cartItems.length === 0
-              ? '<div>Cart is empty. <a href="/#/">Go Shopping</a>'
+              ? '<div>La Carte est vide. <a href="/#/">Faire les achats</a>'
               : cartItems
                   .map(
                     (item) => `
@@ -99,7 +99,7 @@ const CartScreen = {
                   <button type="button" class="delete-button" id="${
                     item.product
                   }">
-                    Delete
+                    Supprimer
                   </button>
                 </div>
               </div>
@@ -109,7 +109,7 @@ const CartScreen = {
             </li>
             `
                   )
-                  .join('\n')
+                  .join("\n")
           } 
         </ul>
       </div>
