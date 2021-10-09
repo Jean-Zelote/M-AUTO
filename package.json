@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/basir/node-javascript-ecommerce.git"
+    //"url": "git+https://github.com/basir/node-javascript-ecommerce.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/basir/node-javascript-ecommerce/issues"
+   // "url": "https://github.com/basir/node-javascript-ecommerce/issues"
   },
-  "homepage": "https://github.com/basir/node-javascript-ecommerce#readme",
+ // "homepage": "https://github.com/basir/node-javascript-ecommerce#readme",
   "dependencies": {
     "babel-node": "0.0.1-security",
     "body-parser": "^1.19.0",
