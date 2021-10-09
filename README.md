@@ -1,19 +1,21 @@
 # M-AUTO
+
 # Amazona ECommerce Website
-![amazona](/frontend/images/jsamazona.jpg)
+
+![amazona](/app/images/jsamazona.jpg)
 
 # JavaScript Tutorial - Full ECommerce in 7 Hours [2021]
 
 Welcome to my React and Node tutorial to build a fully-functional e-commerce website exactly like amazon. Open your code editor and follow me for the next hours to build an e-commerce website using Vanilla JavaScript and Node.JS, ExpressJS and MongoDB.
 
 ## Watch YouTube Video
+
 [https://www.youtube.com/watch?v=N3FDyheHVMM](https://www.youtube.com/watch?v=N3FDyheHVMM)
 
 ## Demo Website
 
 - 👉 Heroku : [https://jsamazona.herokuapp.com](https://jsamazona.herokuapp.com)
 - 👉 AWS : [https://jsamazona.webacademy.pro](https://jsamazona.webacademy.pro)
-
 
 ## You Will Learn
 
@@ -35,9 +37,11 @@ $ cd node-javascript-ecommerce
 ```
 
 ### 2. Setup MongoDB
- - Download and Install it from [mongodb.com](https://www.mongodb.com/try/download/community)
+
+- Download and Install it from [mongodb.com](https://www.mongodb.com/try/download/community)
 
 ### 3. Create .env file
+
 - Create .env file in project folder
 - Enter these lines to that:
 
@@ -55,11 +59,11 @@ $ npm run build
 $ npm start
 ```
 
-### 5. Run Frontend
+### 5. Run app
 
 ```
 # open new terminal
-$ cd frontend
+$ cd app
 $ npm install
 $ npm start
 ```
@@ -84,7 +88,6 @@ $ npm start
 - Q/A: https://codingwithbasir.com
 - Contact Instructor: [Basir](mailto:basir.jafarzadeh@gmail.com)
 
-
 # Features
 
 1. Home Screen
@@ -101,7 +104,7 @@ $ npm start
    4. re-render screen based on changes in item count
 4. Sign-in and Register Screen
    1. Create dynamic form
-   2. Input validation in frontend and backend
+   2. Input validation in app and backend
    3. Create web server using node.js
    4. Connect to Mongodb database
    5. Add registered user to the database
@@ -134,10 +137,10 @@ $ npm start
 
 1. Create Folder Structure
    1. create root folder as jsamazona
-   2. add frontend and backend folder
-   3. create src folder in frontend
+   2. add app and backend folder
+   3. create src folder in app
    4. create index.html with heading jsamazona in src
-   5. run npm init in frontend folder
+   5. run npm init in app folder
    6. npm install live-server
    7. add start command as live-server src --verbose
    8. run npm start
@@ -187,7 +190,7 @@ $ npm start
    3. create server.js
    4. add start command as node backend/server.js
    5. require express
-   6. move data.js from frontend to backend
+   6. move data.js from app to backend
    7. create route for /api/products
    8. return products in data.js
    9. run npm start
@@ -199,11 +202,11 @@ $ npm start
    5. use cors on backend
    6. check the result
 8. Add Webpack
-   1. cd frontend
+   1. cd app
    2. npm install -D webpack webpack-cli webpack-dev-server
    3. npm uninstall live-server
    4. "start": "webpack-dev-server --mode development --watch-content-base --open"
-   5. move index.html, style.css and images to frontend folder
+   5. move index.html, style.css and images to app folder
    6. rename app.js to index.js
    7. update index.html
    8. add script main.js before body tag
@@ -328,7 +331,7 @@ $ npm start
     16. test with correct user and password
 22. Sign-in Screen Action
     1. after_render handle form submit
-    2. create signin request in frontend
+    2. create signin request in app
     3. show alert if email or password is incorrect
     4. Add getUserInfo and setUserInfo to localStorage
     5. create Header component
@@ -352,13 +355,13 @@ $ npm start
     1. create RegisterScreen.js
     2. add form elements
     3. after_render handle form submit
-    4. create register request in frontend
+    4. create register request in app
     5. create register api in backend
 25. User Profile Screen
     1. create ProfileScreen.js
     2. add form elements
     3. after_render handle form submit
-    4. create profile update request in frontend
+    4. create profile update request in app
     5. create profile update api in backend
     6. create isAuth in utils.js and use in update profile
     7. implement sign out
@@ -443,10 +446,10 @@ $ npm start
     15. create uploadProductImage in api.js
     16. update server.js
 38. Build Project
-    1. create build script for frontend
+    1. create build script for app
     2. create build script for backend
-    3. update sever.js to serve frontend build folder and uploads folder
-    4. stop running frontend
+    3. update sever.js to serve app build folder and uploads folder
+    4. stop running app
     5. npm run build
     6. check localhost:5000 for running website and showing images
 39. Delete Product
@@ -513,7 +516,7 @@ $ npm start
     8. call getCategories
     9. create getCategories in api.js
 47. Review Products
-    1.  create review model
-    2.  create review form
-    3.  create review api
-    4.  style review form
+    1. create review model
+    2. create review form
+    3. create review api
+    4. style review form

@@ -35,9 +35,9 @@ app.get("/api/paypal/clientId", (req, res) => {
   res.send({ clientId: config.PAYPAL_CLIENT_ID });
 });
 app.use("/uploads", express.static(path.join(__dirname, "/../uploads")));
-app.use(express.static(path.join(__dirname, "/../frontend")));
+app.use(express.static(path.join(__dirname, "/../app")));
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "/../frontend/index.html"));
+  res.sendFile(path.join(__dirname, "/../app/index.html"));
 });
 app.use((err, req, res, next) => {
   const status = err.name && err.name === "ValidationError" ? 400 : 500;
