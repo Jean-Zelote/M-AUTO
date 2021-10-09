@@ -10,11 +10,14 @@ import productRouter from "./routers/productRouter";
 import uploadRouter from "./routers/uploadRouter";
 
 mongoose
-  .connect(config.MONGODB_URL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true,
-  })
+  .connect(
+    "mongodb+srv://jeanzelote:zelote2021@amazona.nyur7.mongodb.net/amazona?retryWrites=true&w=majority",
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      useCreateIndex: true,
+    }
+  )
   .then(() => {
     console.log("Connected to mongodb.");
   })
