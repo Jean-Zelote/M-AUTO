@@ -1,0 +1,23 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "description": "Site e-commerce de ventes et commandes véhicules en ligne",
+  "main": "index.js",
+  "scripts": {
+    "start": "live-server src --verbose",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jean-Zelote/M-AUTO.git"
+  },
+  "author": "Jean Zelote",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jean-Zelote/M-AUTO/issues"
+  },
+  "homepage": "https://github.com/Jean-Zelote/M-AUTO#readme",
+  "devDependencies": {
+    "live-server": "^1.2.1"
+  }
+}
